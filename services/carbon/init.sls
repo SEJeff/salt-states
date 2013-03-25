@@ -1,0 +1,2 @@
+graphite-web:
+  pkg.installed
