@@ -14,6 +14,12 @@
 {{ xfce_terminal }}:
   pkg.installed
 
+# Don't even show the crappy gnome-terminal icon in the list of apps
+{% if grains["os"] == "Fedora" and grains["osrelease"] >= 17 %}
+/usr/share/applications/gnome-terminal.desktop:
+  file.absent
+{% endif %}
+
 # Only execute any of the below if the "local_user" pillar key exists
 {% if username %}
 {{ salt["user.info"](username)["home"] }}/.config/Terminal/terminalrc:

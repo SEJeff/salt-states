@@ -7,7 +7,7 @@ base:
     - services.salt
 
   # pcre matches minion ids
-  '(omniscience|chit-jsl1070)':
+  '(omniscience|chit-jsl1070|desktopmonster)':
     - match: pcre
     - services.salt.master
 
@@ -16,6 +16,7 @@ base:
   'productname:.*(700Z[35]C|OptiPlex|Latitude|Precision).*':
     - match: grain_pcre
     - roles.desktop
+
   # The motherboard manufacturer doesn't include valid dmi info
   'desktopmonster':
     - roles.desktop
