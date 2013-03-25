@@ -23,7 +23,7 @@
     - replace: False
     - makedirs: True
     - user: {{ username }}
-    - source: salt://desktop/files/terminalrc
+    - source: salt://roles/desktop/files/terminalrc
     # Overly fancy way to get the primary group of pillar["local_user"]
     #     Runs equiv of: `salt-call user.info $value_of_pillar_local_user`
     - group: {{ salt["user.info"](username)["groups"][0] }}
